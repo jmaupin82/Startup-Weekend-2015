@@ -19,12 +19,13 @@
 
 				 <section class="top-bar-section">
 				    <!-- Right Nav Section -->
-				    <ul class="right" ng-hide="username">
+				    <ul class="right" ng-hide="user">
 				      <li ng-click="signUp()" ><a href="#">Sign Up</a></li>
 				      <li class="active" ng-click="signIn()"><a href="#">Sign In</a>
 				    </ul>
 				    <ul class="right" ng-hide="noUser">
-				    	<li><a href="/#/projects">Hello, {{username}}</a></li>
+				    	<li><a href="/#/projects">Hello, {{user.username}}</a></li>
+					    <li><a ng-click="signOut()">Logout</a></li>
 				    </ul>
 
 				    <!-- Left Nav Section -->

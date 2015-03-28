@@ -1,17 +1,17 @@
 (function() {
 	var punchlist = angular.module('punchList');
 
-	var Header = function($scope, $http, $modal) {
+	var Header = function($scope, $http, $modal, $state) {
 		$scope.noUser = true;
-		dpd.users.me(function(user) {
-		    if (user) {
-		        $scope.noUser = false;
-		        window.user = user;
-		        $scope.username = user.username;
-		        $scope.$apply();
-		        console.log(user);
-	       }
-	    });
+
+    $scope.$on('wehaveuser', function() {
+      if (user) {
+        $scope.noUser = false;
+        $scope.user = user;
+        //$scope.username = user.username;
+      }
+    });
+
 		$scope.signIn = function() {
 			$modal.open({
 				templateUrl: 'templates/login.html',
@@ -23,6 +23,18 @@
       $modal.open({
         templateUrl: 'templates/register.html',
         controller: 'RegisterUser'
+      });
+    };
+
+    $scope.signOut = function() {
+      $http.post('/users/logout').success(function(result) {
+        $scope.noUser = true;
+        $scope.user = null;
+        window.user = null;
+        $state.go('/home');
+        // log out stuff
+      }).error(function(result) {
+        //error
       });
     };
 
