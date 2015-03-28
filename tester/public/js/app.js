@@ -10,13 +10,14 @@ PunchList.config(['$stateProvider', '$urlRouterProvider',
 
 	 	$stateProvider
 	 		.state('/home', {
-	 			url: '/',
+	 			url: '/home',
 	 			templateUrl: 'templates/homepage.html',
-	 			controller: 'AccordionDemoCtrl'
+	 			controller: 'Homepage'
 	 		})
 	 		.state('/projects', {
 	 			url: '/projects',
-	 			templateUrl: 'templates/projects.html'
+	 			templateUrl: 'templates/projects.html',
+	 			controller: 'Projects'
 	 		})
 	 		.state('/projects/{projectId}', {
 	 			url: '/projects/{projectId}',
@@ -26,7 +27,7 @@ PunchList.config(['$stateProvider', '$urlRouterProvider',
 	}
 ]);
 
-PunchList.controller('AccordionDemoCtrl', function($scope) {
+PunchList.controller('Homepage', function($scope) {
   $scope.oneAtATime = true;
 
   $scope.groups = [
@@ -46,6 +47,10 @@ PunchList.controller('AccordionDemoCtrl', function($scope) {
     var newItemNo = $scope.items.length + 1;
     $scope.items.push('Item ' + newItemNo);
   };
+});
+
+PunchList.controller('Projects', function($scope) {
+
 });
 
 PunchList.controller('Project', function($scope, $stateParams) {
