@@ -3,7 +3,15 @@
 
 	var Header = function($scope, $http, $modal) {
 		$scope.noUser = true;
-
+		dpd.users.me(function(user) {
+		    if (user) {
+		        $scope.noUser = false;
+		        window.user = user;
+		        $scope.username = user.username;
+		        $scope.$apply();
+		        console.log(user);
+	       }
+	    });
 		$scope.signIn = function() {
 			$modal.open({
 				templateUrl: 'templates/login.html',
