@@ -11,6 +11,12 @@ body {
   max-width: 64em;
   margin: auto; }
 
+.white-shadow {
+  background: #eee;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px; }
+
 .homepage .hero {
   width: 50%;
   margin: 60px auto;

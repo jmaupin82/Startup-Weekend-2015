@@ -1,1 +1,17 @@
+<div class="center page-heading white-shadow">
+
 <h1>Projects</h1>
+
+</div>
+<div class="center white-shadow">
+<a ng-click="addProject()" data-target="#" class="button">Add New Project</a>
+</div>
+<div class="center white-shadow" id="projects" >
+	<div class="row" id="project-row" ng-repeat="project in projects">
+		<h3>{{project.name}}</h3>
+		<div class="project-description">
+			{{project.description}}
+		</div>	
+	</div>
+
+</div>
