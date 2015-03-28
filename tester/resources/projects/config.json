@@ -1,0 +1,53 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "name",
+			"order": 0
+		},
+		"description": {
+			"name": "description",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "description",
+			"order": 1
+		},
+		"clientUserid": {
+			"name": "clientUserid",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "clientUserid",
+			"order": 2
+		},
+		"contractorUserid": {
+			"name": "contractorUserid",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "contractorUserid",
+			"order": 3
+		},
+		"startDate": {
+			"name": "startDate",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "startDate",
+			"order": 4
+		},
+		"endDate": {
+			"name": "endDate",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "endDate",
+			"order": 5
+		}
+	}
+}
