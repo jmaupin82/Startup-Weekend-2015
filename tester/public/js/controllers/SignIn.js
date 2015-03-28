@@ -1,7 +1,7 @@
 (function() {
 	var punchlist = angular.module('punchList');
 
-	var SignIn = function($scope, $http, $modalInstance) {
+	var SignIn = function($scope, $http, $modalInstance, $state) {
 
     $scope.user = {};
 
@@ -14,7 +14,8 @@
 					if (error) console.log(error);
 					window.user = result; // put user on the window
 					console.log(this.user);
-					//$scope.user = result;
+					$state.go('/projects');
+					$modalInstance.dismiss('cancel');
 				});
 			}).error(function(result) {
 				// error
