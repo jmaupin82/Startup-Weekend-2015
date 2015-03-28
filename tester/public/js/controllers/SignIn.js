@@ -9,7 +9,7 @@
 			}).success(function(result) {
 				dpd.users.me(function(result, error) {
 					if (error) console.log(error);
-					this.user = result; // put user on the window
+					window.user = result; // put user on the window
 					console.log(this.user);
 					//$scope.user = result;
 				});
