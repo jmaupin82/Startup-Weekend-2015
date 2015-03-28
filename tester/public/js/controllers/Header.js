@@ -10,6 +10,14 @@
 				controller: 'SignIn'
 			});
 		};
+
+    $scope.signUp = function() {
+      $modal.open({
+        templateUrl: 'templates/register.html',
+        controller: 'RegisterUser'
+      });
+    };
+
 	};
 
 	punchlist.controller('Header', Header);
