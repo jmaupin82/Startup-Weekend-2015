@@ -27,32 +27,32 @@ PunchList.config(['$stateProvider', '$urlRouterProvider',
 	}
 ]);
 
-PunchList.controller('Homepage', function($scope) {
-  $scope.oneAtATime = true;
+//PunchList.controller('Homepage', function($scope) {
+//  $scope.oneAtATime = true;
+//
+//  $scope.groups = [
+//    {
+//      title: "Dynamic Group Header - 1",
+//      content: "Dynamic Group Body - 1"
+//    },
+//    {
+//      title: "Dynamic Group Header - 2",
+//      content: "Dynamic Group Body - 2"
+//    }
+//  ];
+//
+//  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+//
+//  $scope.addItem = function() {
+//    var newItemNo = $scope.items.length + 1;
+//    $scope.items.push('Item ' + newItemNo);
+//  };
+//});
 
-  $scope.groups = [
-    {
-      title: "Dynamic Group Header - 1",
-      content: "Dynamic Group Body - 1"
-    },
-    {
-      title: "Dynamic Group Header - 2",
-      content: "Dynamic Group Body - 2"
-    }
-  ];
+//PunchList.controller('Projects', function($scope) {
+//
+//});
 
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
-
-  $scope.addItem = function() {
-    var newItemNo = $scope.items.length + 1;
-    $scope.items.push('Item ' + newItemNo);
-  };
-});
-
-PunchList.controller('Projects', function($scope) {
-
-});
-
-PunchList.controller('Project', function($scope, $stateParams) {
-	$scope.projectId = $stateParams.projectId;
-});
+//PunchList.controller('Project', function($scope, $stateParams) {
+//	$scope.projectId = $stateParams.projectId;
+//});
