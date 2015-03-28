@@ -1,28 +1,9 @@
-<h1>HomePage</h1>
-
-<div ng-controller="Homepage">
-  <label class="checkbox">
-    <input type="checkbox" ng-model="oneAtATime">
-    Open only one at a time
-  </label>
-
-  <accordion close-others="oneAtATime">
-    <accordion-group heading="Static Header, initially expanded" is-open="true">
-      This content is straight in the template.
-    </accordion-group>
-    <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-      {{group.content}}
-    </accordion-group>
-    <accordion-group heading="Dynamic Body Content">
-      <p>The body of the accordion group grows to fit the contents</p>
-        <button class="button small" ng-click="addItem()">Add Item</button>
-        <div ng-repeat="item in items">{{item}}</div>
-    </accordion-group>
-    <accordion-group is-open="isopen">
-        <accordion-heading>
-            I can have markup, too! <i class="right" ng-class="{'fa fa-chevron-down': isopen, 'fa fa-chevron-right': !isopen}"></i>
-        </accordion-heading>
-        This is just some content to illustrate fancy headings.
-    </accordion-group>
-  </accordion>
+<div ng-controller="Homepage" class="homepage">
+  <div class="hero center">
+		<div class="header">
+  			<h1>Punch List</h1>
+  			<h3>Text text texty text</h3>
+  			<a class="button">Start Today!</a>
+  		</div>
+  </div>
 </div>

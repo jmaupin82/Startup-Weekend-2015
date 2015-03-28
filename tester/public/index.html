@@ -20,7 +20,7 @@
 				 <section class="top-bar-section">
 				    <!-- Right Nav Section -->
 				    <ul class="right" ng-hide="user">
-				      <li><a href="#">Sign Up</a></li>
+				      <li ng-click="signUp()" ><a href="#">Sign Up</a></li>
 				      <li class="active" ng-click="signIn()"><a href="#">Sign In</a>
 				    </ul>
 				    <ul class="right" ng-hide="noUser">
@@ -52,5 +52,6 @@
 	<script type="text/javascript" src="/js/controllers/Homepage.js"></script>
 	<script type="text/javascript" src="/js/controllers/Header.js"></script>
 	<script type="text/javascript" src="/js/controllers/SignIn.js"></script>
+	<script type="text/javascript" src="/js/controllers/Register.js"></script>
 </body>
 </html>

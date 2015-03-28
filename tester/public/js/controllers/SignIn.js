@@ -2,6 +2,9 @@
 	var punchlist = angular.module('punchList');
 
 	var SignIn = function($scope, $http, $modalInstance) {
+
+    $scope.user = {};
+
 		$scope.doLogin = function() {
 			$http.post('/users/login', {
 				username: $scope.user.name,
