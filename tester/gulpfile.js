@@ -15,7 +15,7 @@ var settings = {
   host: '10.206.90.196',
   httpPort: 4321,
   depPort: 27017,
-  depDBname: 'deployd-dbName'
+  depDBname: 'tester'
 };
 
 gulp.task('deployd', function(){
