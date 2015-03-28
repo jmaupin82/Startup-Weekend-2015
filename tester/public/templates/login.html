@@ -1,0 +1,12 @@
+<form name="loginForm">
+	User name: <input type="text" ng-model="user.name" name="userName" required>
+		<span class="error" ng-show="myForm.userName.$error.required">
+	Required!</span><br >
+	Password: <input type="password"  ng-model="user.password" name="userPassword" required>
+		<span class="error" ng-show="myForm.userPassword.$error.required">
+	Required!</span><br >
+	<button ng-click="doLogin()">Login</button>
+
+</form>
+
+<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

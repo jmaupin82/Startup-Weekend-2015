@@ -6,17 +6,6 @@
     Open only one at a time
   </label>
 
-	<form name="loginForm">
-		User name: <input type="text" ng-model="user.name" name="userName" required>
-			<span class="error" ng-show="myForm.userName.$error.required">
-      Required!</span><br >
-		Password: <input type="password"  ng-model="user.password" name="userPassword" required>
-			<span class="error" ng-show="myForm.userPassword.$error.required">
-      Required!</span><br >
-		<button ng-click="doLogin()">Login</button>
-
-	</form>
-
   <accordion close-others="oneAtATime">
     <accordion-group heading="Static Header, initially expanded" is-open="true">
       This content is straight in the template.
