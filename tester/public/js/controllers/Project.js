@@ -5,7 +5,7 @@
 	    if (window.user) {
 	      $scope.user = user;
 	    }
-	    $scope.projectId = $stateParams.projectId;
+
 	    $scope.idTip = 'Share this id with your client for them to join the project.';
 
 	    if (!window.user) {
@@ -66,10 +66,11 @@
 	    	});
 	    };
 
-	    dpd.projects.get($scope.projectId)
+	    dpd.projects.get($stateParams.projectId)
 	    	.then(function(project) {
 	    		$scope.projectName = project.name;
 	    		$scope.projectDescription = project.description;
+	    		$scope.projectId = project.pid;
 	    		$scope.$apply();
 	    	});
 
