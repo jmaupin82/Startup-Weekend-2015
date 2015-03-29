@@ -4,7 +4,7 @@
 	var SignIn = function($scope, $http, $modalInstance, $state, $rootScope) {
 
     $scope.login = {};
-
+    debugger;
 		$scope.doLogin = function() {
 			$http.post('/users/login', {
 				username: $scope.login.name,
@@ -14,7 +14,7 @@
 					if (error) console.log(error);
 					window.user = result; // put user on the window
 					console.log(this.user);
-          $rootScope.$broadcast("wehaveuser");
+          //$rootScope.$broadcast("wehaveuser");
 					$state.go('/projects');
 					$modalInstance.dismiss('cancel');
 				});

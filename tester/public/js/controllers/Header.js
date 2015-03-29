@@ -4,14 +4,14 @@
 	var Header = function($scope, $http, $modal, $state) {
 		//$scope.noUser = true;
 
-    // $scope.$on('wehaveuser', function() {
-    //   //if ($scope.user) {
-    //   if (user) {
-    //     //$scope.noUser = false;
-    //     window.user = user;
-    //     $scope.user = user;
-    //   }
-    // });
+    $scope.$on('wehaveuser', function() {
+      //if ($scope.user) {
+      if (user) {
+        //$scope.noUser = false;
+        window.user = user;
+        $scope.user = user;
+      }
+    });
 
 		$scope.signIn = function() {
 			$modal.open({
