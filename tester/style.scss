@@ -108,6 +108,9 @@ body {
 		padding: 0.5em;
 		background-color: white;
 		margin-bottom: 20px;
+      p {
+        padding-left: 10px;
+      }
 	}
 
 	.project-data {
@@ -133,8 +136,10 @@ body {
 				margin: 0;
 
 				li {
-					border: 1px solid black;
-					padding: 0.2em;
+                  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                  border-left: 4px solid rgba(0, 0, 0, 0.2);
+                  padding: 0.3em;
+                  margin-bottom:10px;
 				}
 			}
 		}
