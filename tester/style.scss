@@ -34,3 +34,29 @@ body {
 		}
 	}
 }
+
+
+.project {
+	padding-top: 40px;
+
+	.project-info {
+		background-color: white;
+	}
+
+	.project-data {
+		background-color: white;
+
+		.tabs dd {
+			width: 50%;
+			text-align: center;
+		}
+
+		.time-line {
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+		}
+	}
+}

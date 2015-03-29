@@ -1,2 +1,34 @@
-<h1>Project</h1>
-<span>{{projectId}}</span>
+<div class="center project">
+	<div class="project-info">
+		<h1>{{projectName}}</h1>
+		<span class="project-id" tooltip="{{idTip}}">{{projectId}}</span>
+		<p>{{projectDescription}}</p>
+	</div>
+
+	<div class="project-data">
+		<tabset>
+			<tab heading="Timeline">
+				<div class="row">
+					<div class="small-12 medium-4 column wish-list">
+						<h4>Wish List</h4>
+					</div>
+					<div class="small-12 medium-8 column time-line">
+						<h4>Punch List</h4>
+						<span ng-click="createPunch()">Create New</span>
+						<ul class="list" ng-repeat="punch in punches">
+							<li class="punch" ng-class="{completed:punch.completed, confirmed:punch.confirmed};">
+								<div class="info">
+									<h3>{{punch.title}}</h3>
+									<span class="description">{{punch.description}}</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</tab>
+			<tab heading="Messages">
+				<h4>Messages</h4>
+			</tab>
+		</tabset>
+	</div>
+</div>
