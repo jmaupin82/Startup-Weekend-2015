@@ -12,8 +12,8 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server, {'log level': 0});
 var settings = {
-  //host: '10.206.90.196',
-  host: '192.168.1.96',
+  host: '10.206.90.196',
+  //host: '192.168.1.96',
   httpPort: 4321,
   depPort: 27017,
   depDBname: 'tester'
