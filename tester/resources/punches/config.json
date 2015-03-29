@@ -1,12 +1,12 @@
 {
 	"type": "Collection",
 	"properties": {
-		"prrojectID": {
-			"name": "prrojectID",
+		"projectID": {
+			"name": "projectID",
 			"type": "string",
 			"typeLabel": "string",
 			"required": false,
-			"id": "prrojectID",
+			"id": "projectID",
 			"order": 0
 		},
 		"title": {

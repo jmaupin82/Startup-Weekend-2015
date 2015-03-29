@@ -1,2 +1,45 @@
-<h1>Project</h1>
-<span>{{projectId}}</span>
+<div class="center project">
+	<div class="project-info">
+		<h1>{{projectName}}</h1>
+		<span class="project-id" tooltip="{{idTip}}">{{projectId}}</span>
+		<p>{{projectDescription}}</p>
+	</div>
+
+	<div class="project-data">
+		<tabset>
+			<tab heading="Timeline">
+				<div class="wish-list">
+					<h4>Wish List</h4>
+					<ul class="wish-list">
+						<li ng-repeat="punch in wishlist">
+							<div ng-click="editPunch(punch)">
+								{{punch.title}}
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="row">
+					<div class="small-12 column time-line">
+						<h4>Punch List</h4>
+						<a class="button" ng-click="createPunch()">Create New</a>
+						<ul class="list">
+							<li class="punch" ng-repeat="punch in punches" ng-class="{completed:punch.completed, confirmed:punch.confirmed};">
+								<div class="info" ng-click="showPunch(punch)">
+									<h3>{{punch.title}}</h3>
+									<span class="description">{{punch.description}}</span>
+									<span class="edit" ng-click="editPunch(punch)"></span>
+								</div>
+								<div class="date">
+									<span>{{punch.date|date:'MMM d yyyy'}}</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</tab>
+			<tab heading="Messages">
+				<h4>Messages</h4>
+			</tab>
+		</tabset>
+	</div>
+</div>

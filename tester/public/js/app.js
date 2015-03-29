@@ -2,7 +2,7 @@
  * Created by Logan on 3/26/2015.
  */
 
-var PunchList = angular.module('punchList', ['ui.router', 'mm.foundation']);
+var PunchList = angular.module('punchList', ['ui.router', 'mm.foundation', 'datePicker']);
 
 PunchList.config(['$stateProvider', '$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider) {

@@ -25,3 +25,48 @@ body {
     width: 100%;
     border: 2px solid white;
     font-size: 1.25em; }
+
+.project {
+  padding-top: 40px; }
+  .project .project-info {
+    background-color: white; }
+  .project .project-data {
+    background-color: white;
+    position: relative; }
+    .project .project-data .tabs dd {
+      width: 50%;
+      text-align: center; }
+    .project .project-data .wish-list {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 200px;
+      z-index: 2; }
+    .project .project-data .time-line {
+      padding-left: 220px; }
+      .project .project-data .time-line ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        position: relative; }
+        .project .project-data .time-line ul::after {
+          content: '';
+          position: absolute;
+          background-color: black;
+          width: 1px;
+          left: 50%;
+          top: -20px;
+          bottom: -20px; }
+        .project .project-data .time-line ul li {
+          overflow: hidden;
+          padding: 20px 0; }
+          .project .project-data .time-line ul li .info {
+            border: 1px solid black;
+            width: 49%;
+            margin-right: 2%;
+            float: left;
+            padding: 0.5em;
+            cursor: pointer; }
+          .project .project-data .time-line ul li .date {
+            width: 25%;
+            float: left; }
