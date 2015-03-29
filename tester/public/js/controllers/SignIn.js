@@ -24,8 +24,8 @@
 		};
 
 		$scope.cancel = function() {
-	    $modalInstance.dismiss('cancel');
-	  };
+		    $modalInstance.dismiss('cancel');
+		};
 	};
 
 	punchlist.controller('SignIn', SignIn);
