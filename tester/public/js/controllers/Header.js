@@ -2,11 +2,12 @@
 	var punchlist = angular.module('punchList');
 
 	var Header = function($scope, $http, $modal, $state) {
-		$scope.noUser = true;
+		//$scope.noUser = true;
 
     $scope.$on('wehaveuser', function() {
-      if ($scope.user) {
-        $scope.noUser = false;
+      //if ($scope.user) {
+      if (user) {
+        //$scope.noUser = false;
         window.user = user;
         $scope.user = user;
       }
