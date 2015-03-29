@@ -13,6 +13,14 @@
 	    	return;
 	    }
 
+      $scope.doUpload = function(obj) {
+        $scope.containerid = obj.id;
+        $modal.open({
+          templateUrl: 'templates/upload.html',
+          controller: 'Upload'
+        });
+      };
+
 	    $scope.createPunch = function() {
 	    	var instance = $modal.open({
 	    		templateUrl: 'templates/CreatePunch.html',

@@ -10,11 +10,13 @@
     $scope.newComment = {};
 
     function getComments() {
-      dpd.comments.get({containerID: punch.id})
-        .then(function(comments) {
-          $scope.comments = comments;
-          $scope.$apply();
-        });
+      if($scope.punch.hasOwnProperty('id')){
+        dpd.comments.get({containerID: punch.id})
+          .then(function(comments) {
+            $scope.comments = comments;
+            $scope.$apply();
+          });
+      }
     }
 
 
@@ -33,6 +35,7 @@
       };
 
       dpd.punches.post(data);
+      $modalInstance.dismiss('cancel');
     };
 
     $scope.edit = function() {
@@ -47,6 +50,7 @@
           };
 
       dpd.punches.put(punch.id, data);
+      $modalInstance.dismiss('cancel');
     };
 
     $scope.addComment = function() {

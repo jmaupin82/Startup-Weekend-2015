@@ -1,0 +1,28 @@
+<form role="form">
+	<h3>Images</h3>
+	<label for="exampleInputFile">File input</label>
+	<input id="uctrl" type="file" data-dbinf-on-files-selected="setFiles(selectedFileList)">
+	<label for="comments">Comment</label>
+	<input type="text" class="form-control" id="comments" placeholder="Enter comment">
+	<button type="button" class="btn btn-success" ng-click="uploadFiles()">Submit</button>
+</form>
+
+<hr />
+	<!--comments: ""-->
+	<!--containerid: "e3783244fd13989f"-->
+	<!--creationDate: 1427611944985-->
+	<!--filename: "71.jpg"-->
+	<!--filesize: 22630-->
+	<!--id: "ab84573e39d3398d"-->
+	<!--mimeType: "image/jpeg"-->
+	<!--subdir: "images"-->
+
+	<div ng-repeat="cfile in currentfiles" ng-show="currentfiles.length > 0">
+		<button class="btn tiny" ng-click="deleteFile($index)">Delete</button>
+		<img ng-src="/uploads/images/{{cfile.filename}}" height="60" width="60" />
+		{{cfile.comments ? cfile.comments : ' - '; }}
+	</div>
+
+
+
+<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

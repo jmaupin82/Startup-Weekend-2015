@@ -39,6 +39,7 @@
 	  			})
 	  		});
 
+
 	  	}
 	  	else if ($scope.isContractor && $scope.user) {
 	  		//create a new project based on the form informations
