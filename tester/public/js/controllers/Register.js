@@ -1,7 +1,7 @@
 (function() {
 	var punchlist = angular.module('punchList');
 
-	var RegisterUser = function($scope, $http, $modalInstance) {
+	var RegisterUser = function($scope, $http, $modalInstance, $state, $rootScope) {
 
     $scope.userregister = {
       role: 'client'
@@ -15,12 +15,10 @@
         webpage: $scope.userregister.webpage,
         role: $scope.userregister.role
       }).success(function(result) {
-        dpd.users.me(function(result, error) {
-          if (error) console.log(error);
-          this.user = result; // put user on the window
-          console.log(this.user);
-          //$scope.user = result;
-        });
+        window.user = result;
+        $rootScope.$broadcast("wehaveuser");
+        $modalInstance.dismiss('cancel');
+        $state.go('/projects');
       }).error(function(result) {
         // error
       });

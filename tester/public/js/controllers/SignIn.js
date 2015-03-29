@@ -1,19 +1,20 @@
 (function() {
 	var punchlist = angular.module('punchList');
 
-	var SignIn = function($scope, $http, $modalInstance, $state) {
+	var SignIn = function($scope, $http, $modalInstance, $state, $rootScope) {
 
-    $scope.user = {};
+    $scope.login = {};
 
 		$scope.doLogin = function() {
 			$http.post('/users/login', {
-				username: $scope.user.name,
-				password: $scope.user.password
+				username: $scope.login.name,
+				password: $scope.login.password
 			}).success(function(result) {
 				dpd.users.me(function(result, error) {
 					if (error) console.log(error);
 					window.user = result; // put user on the window
 					console.log(this.user);
+          $rootScope.$broadcast("wehaveuser");
 					$state.go('/projects');
 					$modalInstance.dismiss('cancel');
 				});

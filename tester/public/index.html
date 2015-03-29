@@ -26,7 +26,8 @@
 				      <li class="active" ng-click="signIn()"><a href="#">Sign In</a>
 				    </ul>
 				    <ul class="right" ng-hide="noUser">
-				    	<li><a href="projects">Hello, {{user}}</a></li>
+				    	<li><a href="/#/projects">Hello, {{user.username}}</a></li>
+					    <li><a ng-click="signOut()">Logout</a></li>
 				    </ul>
 
 				    <!-- Left Nav Section -->

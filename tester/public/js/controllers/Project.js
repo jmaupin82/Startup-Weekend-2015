@@ -2,6 +2,9 @@
   var punchlist = angular.module('punchList');
 
   var Project = function($scope, $stateParams, $modal, $state) {
+    if (user) {
+      $scope.user = user;
+    }
     $scope.projectId = $stateParams.projectId;
     $scope.idTip = 'Share this id with your client for them to join the project.';
 
