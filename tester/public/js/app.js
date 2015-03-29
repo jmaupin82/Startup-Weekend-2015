@@ -44,6 +44,7 @@ PunchList.directive('dbinfOnFilesSelected', [function() {
       element.bind("change", function()
       {  //match the selected files to the name 'selectedFileList', and
         //execute the code in the data-dbinf-on-files-selected attribute
+        //scope.dbinfOnFilesSelected({selectedFileList : element[0].files});
         scope.dbinfOnFilesSelected({selectedFileList : element[0].files});
       });
     }

@@ -1,104 +1,60 @@
 (function() {
 	var punchlist = angular.module('punchList');
 
-	var Upload = function($scope, $http, $modalInstance, $state, $rootScope) {
-    $scope.files = [];
+	var Upload = function($scope, $http, $modalInstance, $modal) {
 
-    $scope.currentproject = $scope.$$prevSibling.project;
-    $scope.currentfiles = [];
+    $scope.containerid = $scope.$$prevSibling.containerid;
 
 		$scope.cancel = function() {
 	    $modalInstance.dismiss('cancel');
 	  };
 
-    //$('.alert-success').hide();
 
     $scope.uploadFiles = function() {
 
       var fd = new FormData();
-      for (var i in $scope.files) {
-        fd.append("uploadedFile", $scope.files[i])
-      }
 
       var comments = $('#comments').val();
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', '/upload?subdir=images&comments=' + comments + '&projectid=' + $scope.currentproject.id);
+      xhr.open('POST', '/fileuploader?subdir=images&comments=' + comments + '&containerid=' + $scope.containerid);
+      xhr.setRequestHeader('X-Requested-With','XMLHttpRequest');
+      for(var i=0, len=$scope.files.length; i<len; i++) {
+        fd.append('files', $scope.files[i]);
+      }
       xhr.onload = function() {
         var response = JSON.parse(this.responseText);
-        console.log(response);
-        $('.alert-success').append("Upload successful!<br />");
-        for (var index in response) {
-          $scope.appendUploadedFileToTable(response[index]);
-        }
+
+        response.forEach(function(postedimage){
+          $scope.currentfiles.push(postedimage);
+        });
+        $('#uctrl').val('');
+        $('#comments').val('');
+        $scope.$apply();
       };
+
       xhr.onerror = function(err) {
-        alert("Error: ", err);
-      }
+        // error
+        console.log(err);
+      };
+
       xhr.send(fd);
 
     };
 
-
-    //$scope.uploadFiles = function() {
-    //
-    //  var fd = new FormData();
-    //  for (var i in $scope.files) {
-    //    fd.append("uploadedFile", $scope.files[i])
-    //  }
-    //
-    //  var comments = $('#comments').val();
-    //  $http.post('/upload?&comments=' + comments + '&uniqueFilename=' + true)
-    //    .success(function (data) {
-    //      $('.alert-success').append("Upload successful!<br />");
-    //      for (var index in data) {
-    //        $scope.appendUploadedFileToTable(data[index]);
-    //      }
-    //    })
-    //    .error(function (data, status) {
-    //      alert("Error: ", data);
-    //    });
-    //
-    //
-    //};
-
-
-    $scope.appendUploadedFileToTable = function(file) {
-      $('#result tr:last').after(
-        "<tr><td><a href='upload_/" + file.subdir + "/" + file.filename + "'>" + file.filename + "</a></td>" +
-        "<td>" + file.subdir + "</td>" +
-        "<td>" + file.comments + "</td>" +
-        "<td>" + file.filesize + "</td>" +
-        "<td>" + file.originalFilename + "</td>" +
-        "<td>" + new Date(file.creationDate).toLocaleString() + "</td>" +
-        "<td><button class='btn btn-default btn-sm' " +
-        "ng-click='deleteFile(this, &quot;" + file.id + "&quot;)'>Delete</button></td></tr>");
-
-    };
-
     $scope.setFiles = function(element) {
-      console.log('files:', element);
-      // Turn the FileList object into an Array
-      $scope.files = [];
-      for (var i = 0; i < element.length; i++) {
-        $scope.files.push(element[i]);
-      }
-      console.log($scope.files)
+      $scope.files = element;
     };
 
-    dpd.upload.get(function(data, statusCode, headers, config) {
+    dpd.fileuploader.get({containerid: $scope.containerid},function(data) {
       $scope.currentfiles = data;
       $scope.$apply();
-      //for(var index in data) {
-      //  $scope.appendUploadedFileToTable(data[index]);
-      //}
     });
 
     $scope.deleteFile = function(imgIndex) {
-      var thisImg = $scope.currentfiles[imgIndex];
-      dpd.upload.del(thisImg.id, function(data, status) {
-        var asdf = "asdf";
-        //$('.alert-success').show();
-        //$('.alert-success').append("File removed!");
+      var img = $scope.currentfiles[imgIndex];
+      dpd.fileuploader.del(img.id, function(result, error) {
+        $scope.currentfiles.splice(imgIndex,1);
+        $scope.$apply();
       })
     }
 
