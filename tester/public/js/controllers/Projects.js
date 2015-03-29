@@ -23,6 +23,9 @@
   	$scope.doAddProject = function(form) {
   		debugger;
   		console.log(form);
+  		//make sure to get the form elements
+  		$scope.addprojectform.name = $('#addprojectname').val();
+  		$scope.addprojectform.description = $('#addprojectdes').val();
 	  	if($scope.isClient && $scope.addproject.pid) {
 	  		//only if the user is a client and the pid was entered
 	  		//lookup the project with the given pid
@@ -45,7 +48,7 @@
 	  		//create a new project based on the form informations
 	  		var proj = {
 		  		name: $scope.addprojectform.name,
-		  		pid: Math.random(200), //TODO make this non coliding
+		  		pid: Math.round(Math.random() * 1000000), //TODO make this non coliding
 		  		description: $scope.addprojectform.description,
 		  		contractorUserid : $scope.user.id,
 		  		startDate: new Date()
@@ -100,11 +103,12 @@
 	
 	 $scope.doLinkProject = function(form) {
 	 	console.log($scope.linkproject.pid);
-	 	debugger;
+	 	$scope.linkproject.pid = $('#linkprojectid').val();
+	 	console.log($scope.linkproject.pid);
+
   		//only if the user is a client and the pid was entered
   		//lookup the project with the given pid
   		dpd.projects.get({pid: $scope.linkproject.pid}, function(success, error){
-  			debugger;
   			console.log(success);
   			if(error) {
   				console.log("there was an error in your request", error);
