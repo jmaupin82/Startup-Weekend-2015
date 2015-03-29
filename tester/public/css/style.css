@@ -42,7 +42,9 @@ body {
 .project {
   padding-top: 40px; }
   .project .project-info {
-    background-color: white; }
+    padding: 0.5em;
+    background-color: white;
+    margin-bottom: 20px; }
   .project .project-data {
     background-color: white;
     position: relative; }
@@ -54,7 +56,15 @@ body {
       top: 60px;
       left: 0;
       width: 200px;
-      z-index: 2; }
+      z-index: 2;
+      padding: 0 0.5em; }
+      .project .project-data .wish-list ul {
+        list-style: none;
+        padding: 0;
+        margin: 0; }
+        .project .project-data .wish-list ul li {
+          border: 1px solid black;
+          padding: 0.2em; }
     .project .project-data .time-line {
       padding-left: 220px; }
       .project .project-data .time-line ul {
@@ -83,3 +93,9 @@ body {
           .project .project-data .time-line ul li .date {
             width: 25%;
             float: left; }
+
+.punch-details label {
+  font-size: 1rem;
+  line-height: 1.3rem;
+  height: 1.3rem;
+  color: black; }
