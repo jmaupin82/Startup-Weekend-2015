@@ -138,4 +138,14 @@ body {
 		height: 1.3rem;
 		color: black;
 	}
+
+	.info {
+		overflow: hidden;
+
+		img {
+			width: 200px;
+			float: left;
+			margin-right: 20px;
+		}
+	}
 }

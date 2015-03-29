@@ -73,6 +73,18 @@
 	    		$scope.$apply();
 	    	});
 
+	    function getImage(punch) {
+	    	dpd.fileuploader.get({containerid: punch.id})
+	    		.then(function(imgs) {
+	    			var img = imgs && imgs[0];
+
+	    			if (img) {
+	    				punch.image = img.filename;
+	    				$scope.$apply();
+	    			}
+	    		});
+	    };
+
 	    function loadPunches() {
 	    	dpd.punches.get({projectID: $scope.projectId})
 		    	.then(function(projects) {
@@ -84,6 +96,8 @@
 		    			} else {
 		    				punches.push(project);
 		    			}
+
+		    			getImage(project);
 		    		});
 
 		    		punches.sort(function(a, b) {

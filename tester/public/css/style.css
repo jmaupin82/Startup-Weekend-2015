@@ -99,3 +99,9 @@ body {
   line-height: 1.3rem;
   height: 1.3rem;
   color: black; }
+.punch-details .info {
+  overflow: hidden; }
+  .punch-details .info img {
+    width: 200px;
+    float: left;
+    margin-right: 20px; }

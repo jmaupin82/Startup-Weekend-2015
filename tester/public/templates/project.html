@@ -26,6 +26,7 @@
 							<li class="punch" ng-repeat="punch in punches" ng-class="{completed:punch.completed, confirmed:punch.confirmed};">
 								<div class="info" ng-click="showPunch(punch)">
 									<h3>{{punch.title}}</h3>
+									<img ng-src="uploads/images/{{punch.image}}">
 									<span class="description">{{punch.description}}</span>
 									<span class="edit" ng-click="editPunch(punch)"></span>
 								</div>

@@ -1,7 +1,5 @@
 tester/node_modules
 tester/data
-<<<<<<< HEAD
-=======
 .dpd/pids
 .idea/
->>>>>>> master
+tester/public/uploads
