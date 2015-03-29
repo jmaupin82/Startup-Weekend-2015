@@ -10,8 +10,12 @@
 			<tab heading="Timeline">
 				<div class="wish-list">
 					<h4>Wish List</h4>
-					<ul class="wish-list" ng-repeat="punch in wishlist">
-						<li>{{punch.title}}</li>
+					<ul class="wish-list">
+						<li ng-repeat="punch in wishlist">
+							<div ng-click="editPunch(punch)">
+								{{punch.title}}
+							</div>
+						</li>
 					</ul>
 				</div>
 				<div class="row">

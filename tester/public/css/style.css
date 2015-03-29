@@ -40,13 +40,14 @@ body {
       position: absolute;
       top: 60px;
       left: 0;
-      width: 200px; }
+      width: 200px;
+      z-index: 2; }
     .project .project-data .time-line {
       padding-left: 220px; }
       .project .project-data .time-line ul {
         list-style: none;
         padding: 0;
-        margin: 0;
+        margin: 20px 0;
         position: relative; }
         .project .project-data .time-line ul::after {
           content: '';

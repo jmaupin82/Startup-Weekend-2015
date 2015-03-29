@@ -39,7 +39,7 @@
       var data = {
             title: $scope.punch.title,
             description: $scope.punch.description,
-            isWishList: !punch.date && $scope.punch.date ? true : punch.isWishList,
+            isWishList: $scope.punch.date ? false : punch.isWishList,
             date: $scope.punch.date,
             wishPriority: $scope.punch.wishPriority,
             completed: $scope.punch.completed,
