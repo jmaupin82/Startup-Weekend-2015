@@ -7,28 +7,65 @@ body {
   background-size: cover;
   background-attachment: fixed; }
 
+#header-logo {
+  height: 44px;
+  width: 100px; }
+
+.center-font {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
 .center {
   max-width: 64em;
   margin: auto; }
+  .center img {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 200px; }
+
+.blue-font {
+  color: #42C5BE; }
+
+.white-shadow {
+  background: #fff;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  padding: 20px; }
+
+.blue-background {
+  background: #42C5BE;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  color: #fff; }
+
+.full-container {
+  width: 100%;
+  padding: 10px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-top: 80px;
+  margin-bottom: 0px;
+  text-align: center; }
 
 .project-row {
   background: #eee;
   border: 1px #aaa solid;
   padding: 10px;
   margin-top: 30px;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  cursor: pointer; }
 
-#header-logo {
-  height: 44px;
-  width: 100px; }
-
-.white-shadow {
-  background: #fff;
+.homepage h1 {
   margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px; }
-
+  margin-bottom: 20px; }
+.homepage h3 {
+  text-align: center; }
 .homepage .hero {
+  text-align: center;
   width: 50%;
   margin: 60px auto;
   background-color: rgba(0, 0, 0, 0.7);

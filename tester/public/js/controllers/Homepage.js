@@ -1,7 +1,7 @@
 (function () {
   var punchlist = angular.module('punchList');
 
-  var Homepage = function($scope, $http) {
+  var Homepage = function($scope, $http, $state) {
     $scope.oneAtATime = true;
 
     $scope.user = {};
@@ -40,6 +40,11 @@
       var newItemNo = $scope.items.length + 1;
       $scope.items.push('Item ' + newItemNo);
     };
+
+    $scope.goProjects = function() {
+      //window.location.href = window.location.href + '/projects';
+      $state.go('/projects'); 
+    }
   };
 
   punchlist.controller('Homepage', Homepage);
