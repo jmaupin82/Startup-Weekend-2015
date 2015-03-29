@@ -8,6 +8,7 @@
     $scope.isClient = user.role === 'client';
 
     $scope.newComment = {};
+    $scope.currentfiles = [];
 
     function getComments() {
       if($scope.punch.hasOwnProperty('id')){
@@ -20,9 +21,71 @@
     }
 
 
+
+    $scope.uploadFiles = function(containerid) {
+
+      var fd = new FormData();
+
+      // var comments = $('#comments').val();
+      //var imgComments = $scope.imgComments;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/fileuploader?subdir=images&containerid=' + containerid);
+      xhr.setRequestHeader('X-Requested-With','XMLHttpRequest');
+      for(var i=0, len=$scope.files.length; i<len; i++) {
+        fd.append('files', $scope.files[i]);
+      }
+      xhr.onload = function() {
+        var response = JSON.parse(this.responseText);
+
+        response.forEach(function(postedimage){
+          $scope.currentfiles.push(postedimage);
+        });
+        $scope.$apply();
+      };
+
+      xhr.onerror = function(err) {
+        // error
+        console.log(err);
+      };
+
+      xhr.send(fd);
+
+    };
+
+    $scope.setFiles = function(element) {
+      $scope.files = element;
+    };
+
+    if($scope.punch.hasOwnProperty('id')){
+      dpd.fileuploader.get({containerid: $scope.containerid},function(data) {
+        $scope.currentfiles = data;
+        $scope.$apply();
+      });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     getComments();
 
     $scope.create = function() {
+
+      var containerid;
+
+
+
+
+
       var data = {
         title: $scope.punch.title,
         description: $scope.punch.description,
@@ -34,8 +97,13 @@
         projectID: projectId
       };
 
-      dpd.punches.post(data);
-      $modalInstance.dismiss('cancel');
+      dpd.punches.post(data)
+        .then(function(punch) {
+          $scope.uploadFiles(punch.id);
+          $scope.$apply();
+          $modalInstance.dismiss('cancel');
+      });
+      //$modalInstance.dismiss('cancel');
     };
 
     $scope.edit = function() {

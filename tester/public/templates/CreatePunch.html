@@ -9,7 +9,50 @@
 	<div class="date" ng-hide="isClient">
 		Date: <input type="datetime" date-time ng-model="punch.date" view="date" min-view="date">
 	</div>
+
+
+
+
+
+
+
+	<form role="form">
+		<label for="exampleInputFile">Attach Image</label>
+		<input id="uctrl" type="file" data-dbinf-on-files-selected="setFiles(selectedFileList)">
+		<!--<label for="comments">Image Comment</label>-->
+		<!--<input type="text" ng-model="imgComments" class="form-control" name="imgComments" placeholder="Enter image comment">-->
+		<!--<button type="button" class="btn btn-success" ng-click="uploadFiles()">Submit</button>-->
+	</form>
+
+	<hr />
+	<!--comments: ""-->
+	<!--containerid: "e3783244fd13989f"-->
+	<!--creationDate: 1427611944985-->
+	<!--filename: "71.jpg"-->
+	<!--filesize: 22630-->
+	<!--id: "ab84573e39d3398d"-->
+	<!--mimeType: "image/jpeg"-->
+	<!--subdir: "images"-->
+
+	<div ng-repeat="cfile in currentfiles" ng-show="currentfiles.length > 0">
+		<!--<button class="btn tiny" ng-click="deleteFile($index)">Delete</button>-->
+		<img ng-src="/uploads/images/{{cfile.filename}}" height="60" width="60" />
+	</div>
+
+
+
+
+
+
+
 	<button ng-click="create()">Create</button>
 </form>
 
+
+
+
+
+
+
 <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+
