@@ -5,13 +5,17 @@
 		Priority: <span>{{punch.wishPriority}}</span><br>
 		Date: <span>{{punch.date|date:'MMM d yyyy'}}</span><br>
 		<div ng-show="isClient">
-			Completed: <span>{{punch.completed}}</span>
+			<span ng-show="punch.completed">Is </span>
+			<span ng-hide="punch.completed">Not </span>
+			Completed
 		</div>
 		<label ng-hide="isClient">
 			Completed: <input type="checkbox" ng-model="punch.completed" ng-change="edit()">
 		</label>
 		<div ng-hide="isClient">
-			Confirmed: <span>{{punch.confirmed}}</span>
+			<span ng-show="punch.confirmed">Is </span>
+			<span ng-hide="punch.confirmed">Not </span>
+			Confirmed
 		</div>
 		<label ng-show="isClient">
 			Confirmed: <input type="checkbox" ng-model="punch.confirmed" ng-change="edit()">
@@ -20,10 +24,11 @@
 	</div>
 </div>
 <div class="comments">
+	<h3>Comments:</h3>
 	<ul class="comments-list">
 		<li ng-repeat="comment in comments" class="comment">
-			User: <span>{{comment.username}}</span>
-			Date: <span>{{comment.date|date:"MMM d yyyy"}}</span>
+			By <span>{{comment.username}} </span>
+			on <span>{{comment.date|date:"MMM d yyyy"}}:</span>
 			<p>{{comment.description}}</p>
 		</li>
 	</ul>

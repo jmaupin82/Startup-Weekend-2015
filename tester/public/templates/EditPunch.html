@@ -1,19 +1,22 @@
-<form name="createPunchForm">
-	Name: <input type="text" ng-model="punch.title" name="punchName" required>
-	<span class="error" ng-show="myForm.userName.$error.requied"> Required!</span><br>
-	Description: <textarea ng-model="punch.description" name="punchDesc"></textarea>
-	<span class="error" ng-show="myForm.userName.$error.required">Required!</span><br>
-	<div class="priority" ng-show="isClient">
-		Priority: <input type="number" name="punchPriority" min="0" max="10" ng-model="punch.wishPriority">
-	</div>
-	<div class="date" ng-hide="isClient">
-		Date: <input type="datetime" date-time ng-model="punch.date" view="date" min-view="date">
-
-		<div class="date" ng-hide="punch.isWishList">
-			Completed: <input type="checkbox" ng-model="punch.completed">
+<form name="createPunchForm" class="punch-details">
+	<div class="info">
+		<img ng-src="uploads/images/{{punch.image}}">
+		Name: <input type="text" ng-model="punch.title" name="punchName" required>
+		<span class="error" ng-show="myForm.userName.$error.requied"> Required!</span><br>
+		Description: <textarea ng-model="punch.description" name="punchDesc"></textarea>
+		<span class="error" ng-show="myForm.userName.$error.required">Required!</span><br>
+		<div class="priority" ng-show="isClient">
+			Priority: <input type="number" name="punchPriority" min="0" max="10" ng-model="punch.wishPriority">
 		</div>
+		<div class="date" ng-hide="isClient">
+			Date: <input type="datetime" date-time ng-model="punch.date" view="date" min-view="date">
+
+			<div class="date" ng-hide="punch.isWishList">
+				Completed: <input type="checkbox" ng-model="punch.completed">
+			</div>
+		</div>
+		<button ng-click="edit()">Edit</button>
 	</div>
-	<button ng-click="edit()">Edit</button>
 </form>
 
 <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

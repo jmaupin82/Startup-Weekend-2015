@@ -109,3 +109,19 @@ body {
     width: 200px;
     float: left;
     margin-right: 20px; }
+  .punch-details .info input[type="text"], .punch-details .info input[type="number"], .punch-details .info input[type="datetime"] {
+    width: 300px; }
+  .punch-details .info textarea {
+    width: 500px; }
+
+.comments {
+  margin-top: 10px; }
+  .comments .comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .comments .comments-list li {
+      margin-bottom: 10px;
+      border-bottom: 1px solid black; }
+      .comments .comments-list li p {
+        margin-bottom: 0; }

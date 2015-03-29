@@ -87,7 +87,7 @@
 	    };
 
 	    function loadPunches() {
-	    	dpd.punches.get({projectID: $scope.projectId})
+	    	dpd.punches.get({projectID: $stateParams.projectId})
 		    	.then(function(projects) {
 		    		var punches = [], wishlist = [];
 
