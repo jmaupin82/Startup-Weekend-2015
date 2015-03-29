@@ -2,7 +2,6 @@
   var punchlist = angular.module('punchList');
 
   var Punch = function($scope, $http, $modalInstance, $state, projectId, punch) {
-    debugger;
     $scope.punch = punch || {};
 
     $scope.isClient = user.role === 'client';

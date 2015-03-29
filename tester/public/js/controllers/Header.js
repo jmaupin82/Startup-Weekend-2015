@@ -5,10 +5,10 @@
 		$scope.noUser = true;
 
     $scope.$on('wehaveuser', function() {
-      if (user) {
+      if ($scope.user) {
         $scope.noUser = false;
+        window.user = user;
         $scope.user = user;
-        //$scope.username = user.username;
       }
     });
 
@@ -18,6 +18,17 @@
 				controller: 'SignIn'
 			});
 		};
+		dpd.users.me(function(user, error){
+			$scope.user = user;
+			window.user = user;
+			$scope.noUser = false;
+			$scope.username = user.username;
+			$scope.$apply();
+			// dpd.projects.get({contractorUserid: user.id}, function(results, error){
+			// 	console.log("results", results);
+			// 	console.log("error message", error);
+			// });
+		});
 
     $scope.signUp = function() {
       $modal.open({

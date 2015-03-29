@@ -11,6 +11,22 @@ body {
 	margin: auto;
 }
 
+.project-row {
+	background: #eee;
+	border: 1px #aaa solid;
+	padding: 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.white-shadow {
+	background: #fff;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	padding: 20px;
+}
+
 .homepage {
 	.hero {
 		width: 50%;
@@ -40,7 +56,9 @@ body {
 	padding-top: 40px;
 
 	.project-info {
+		padding: 0.5em;
 		background-color: white;
+		margin-bottom: 20px;
 	}
 
 	.project-data {
@@ -58,6 +76,18 @@ body {
 			left: 0;
 			width: 200px;
 			z-index: 2;
+			padding: 0 0.5em;
+
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+
+				li {
+					border: 1px solid black;
+					padding: 0.2em;
+				}
+			}
 		}
 
 		.time-line {
@@ -98,5 +128,14 @@ body {
 				}
 			}
 		}
+	}
+}
+
+.punch-details {
+	label { 
+		font-size: 1rem;
+		line-height: 1.3rem;
+		height: 1.3rem;
+		color: black;
 	}
 }

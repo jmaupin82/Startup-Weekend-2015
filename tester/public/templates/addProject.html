@@ -1,0 +1,27 @@
+
+<div ng-hide="isClient">
+<form name="addprojectform">
+	
+		Project name: <input id="addprojectname" type="text" ng-model="addprojectform.name" name="name" required>
+			<span class="error" ng-show="$addprojectform.projectname.$error.required">Project Name is required.<br></span>
+
+		Description: <input id="addprojectdes" type="text" ng-model="addprojectform.description" name="description">
+		<br/>
+
+	<button ng-click="doAddProject(addprojectform)">Submit</button>
+</form>
+</div>
+
+<div ng-hide="isContractor">
+	<form name="linkproject">
+		Project ID: <input id="linkprojectid" type="text" ng-model="linkproject.pid" name="PID" required>
+		<button ng-click="doLinkProject()">Submit</button>
+
+	</form>
+</div>
+
+<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
+
+
+
+

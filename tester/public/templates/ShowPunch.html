@@ -3,8 +3,18 @@
 		Name: <span>{{punch.title}}</span><br>
 		Priority: <span>{{punch.wishPriority}}</span><br>
 		Date: <span>{{punch.date|date:'MMM d yyyy'}}</span><br>
-		Completed: <span>{{punch.completed}}</span><br>
-		Confirmed: <span>{{punch.confirmed}}</span><br>
+		<div ng-show="isClient">
+			Completed: <span>{{punch.completed}}</span>
+		</div>
+		<label ng-hide="isClient">
+			Completed: <input type="checkbox" ng-model="punch.completed" ng-change="edit()">
+		</label>
+		<div ng-hide="isClient">
+			Confirmed: <span>{{punch.confirmed}}</span>
+		</div>
+		<label ng-show="isClient">
+			Confirmed: <input type="checkbox" ng-model="punch.confirmed" ng-change="edit()">
+		</label>
 		Description: <p>{{punch.description}}</p>
 	</div>
 </div>
@@ -18,7 +28,6 @@
 	</ul>
 	<form name="createPunchForm">
 		Comment: <textarea ng-model="newComment.description" name="commentDesc"></textarea>
-		<span class="error" ng-show="myForm.userName.$error.required">Required!</span><br>
 		<button ng-click="addComment()">Add</button>
 	</form>
 </div>
