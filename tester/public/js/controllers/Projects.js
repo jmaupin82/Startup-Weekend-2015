@@ -4,6 +4,11 @@
   var Projects = function($scope, $http, $modal, $state) {
   	//get all projects for the signed in user
   	$scope.projects = new Array();
+  	$scope.linkproject = {};
+  	$scope.addprojectform = {
+  		name: '',
+  		description: ''
+  	};
 	if (window.user) {
 		$scope.user = window.user;
 		//set some scope variables if the user is a contractor or client
@@ -18,8 +23,7 @@
     }
 
   	$scope.doAddProject = function(form) {
-  		
-	  	
+
 	  	if ($scope.isContractor && $scope.user) {
 	  		//create a new project based on the form informations
 	  		var proj = {
@@ -33,7 +37,7 @@
 		  	dpd.projects.post(proj, function(success, error){
 		  		if(success){
 		  			console.log('success!', success);
-		  			projectModal.close();
+		  			
 		  		}
 		  		else {
 		  			console.log('error :(', error);
@@ -65,11 +69,6 @@
   	
 
 	$scope.addProject = function() {
-		$scope.linkproject = {};
-	  	$scope.addprojectform = {
-	  		name: '',
-	  		description: ''
-	  	};
 	  	var projectModal = $modal.open({
 	        templateUrl: 'templates/addProject.html',
 	        controller: 'Projects', 
