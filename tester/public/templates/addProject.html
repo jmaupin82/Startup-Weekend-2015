@@ -1,11 +1,15 @@
 
 <div ng-hide="isClient">
+<script type="text/javascript">
+	$scope.addprojectform.name = '';
+	$scope.addprojectform.description = '';
+</script>
 <form name="addprojectform">
 	
-		Project name: <input id="addprojectname" type="text" ng-model="addprojectform.name" name="name" required>
-			<span class="error" ng-show="$addprojectform.projectname.$error.required">Project Name is required.<br></span>
+		Project name: <input id="addprojectname" placeholder="Enter Name" type="text" ng-model="addprojectform.name" name="name" required>
+			<span class="error" ng-show="addprojectform.name.$error.required">Project Name is required.<br></span>
 
-		Description: <input id="addprojectdes" type="text" ng-model="addprojectform.description" name="description">
+		Description: <input id="addprojectdes" placeholder="Enter Description" type="text" ng-model="addprojectform.description" name="description">
 		<br/>
 
 	<button ng-click="doAddProject(addprojectform)">Submit</button>

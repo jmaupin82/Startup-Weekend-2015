@@ -2,7 +2,6 @@
   var punchlist = angular.module('punchList');
 
   var Punch = function($scope, $http, $modalInstance, $state, projectId, punch) {
-    debugger;
     $scope.punch = punch || {};
 
     $scope.isClient = user.role === 'client';
@@ -60,7 +59,6 @@
           date: (new Date()).getTime(),
           containerID: punch.id
       };
-      debugger;
       dpd.comments.post(data)
         .then(getComments);
     };
