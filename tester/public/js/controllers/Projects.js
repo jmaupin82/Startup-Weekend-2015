@@ -4,9 +4,8 @@
   var Projects = function($scope, $http, $modal, $state) {
   	//get all projects for the signed in user
   	$scope.projects = new Array();
-  	$scope.addproject = {};
-	$scope.linkproject = {};
-
+  	$scope.linkproject = {};
+  	$scope.addprojectform = {};
   	console.log(window.user);
     if (window.user) {
       $scope.user = window.user;
@@ -21,8 +20,9 @@
       getProjectsForUser($scope.user);
     }
 
-  	$scope.doAddProject = function() {
-	  	
+  	$scope.doAddProject = function(form) {
+  		debugger;
+  		console.log(form);
 	  	if($scope.isClient && $scope.addproject.pid) {
 	  		//only if the user is a client and the pid was entered
 	  		//lookup the project with the given pid
@@ -43,11 +43,13 @@
 	  	else if ($scope.isContractor && $scope.user) {
 	  		//create a new project based on the form informations
 	  		var proj = {
-		  		name: $scope.addproject.name,
+		  		name: $scope.addprojectform.name,
 		  		pid: Math.random(200), //TODO make this non coliding
-		  		description: $scope.addproject.description,
-		  		contractorUserid : $scope.user.id
+		  		description: $scope.addprojectform.description,
+		  		contractorUserid : $scope.user.id,
+		  		startDate: new Date()
 		  	};
+		  	console.log(proj);
 		  	dpd.projects.post(proj, function(success, error){
 		  		if(success){
 		  			console.log("success!", success);
@@ -95,7 +97,7 @@
 
 	 };
 	
-	 $scope.doLinkProject = function() {
+	 $scope.doLinkProject = function(form) {
 	 	console.log($scope.linkproject.pid);
 	 	debugger;
   		//only if the user is a client and the pid was entered
