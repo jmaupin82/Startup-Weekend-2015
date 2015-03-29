@@ -10,12 +10,11 @@
 			<tab heading="Timeline">
 				<div class="wish-list">
 					<h4>Wish List</h4>
-					<ul class="wish-list">
+					<ul>
 						<li ng-repeat="punch in wishlist">
 							<div ng-click="editPunch(punch)">
 								{{punch.title}}
 							</div>
-							<a ng-click="doUpload(punch)">Add image(s)</a>
 						</li>
 					</ul>
 				</div>
@@ -27,6 +26,7 @@
 							<li class="punch" ng-repeat="punch in punches" ng-class="{completed:punch.completed, confirmed:punch.confirmed};">
 								<div class="info" ng-click="showPunch(punch)">
 									<h3>{{punch.title}}</h3>
+									<img ng-src="uploads/images/{{punch.image}}">
 									<span class="description">{{punch.description}}</span>
 									<span class="edit" ng-click="editPunch(punch)"></span>
 								</div>
