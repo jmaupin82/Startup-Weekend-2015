@@ -8,8 +8,12 @@
 	</div>
 	<div class="date" ng-hide="isClient">
 		Date: <input type="datetime" date-time ng-model="punch.date" view="date" min-view="date">
+
+		<div class="date" ng-hide="punch.isWishList">
+			Completed: <input type="checkbox" ng-model="punch.completed">
+		</div>
 	</div>
-	<button ng-click="create()">Create</button>
+	<button ng-click="edit()">Edit</button>
 </form>
 
 <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

@@ -1,0 +1,26 @@
+<div class="punch-details">
+	<div class="info">
+		Name: <span>{{punch.title}}</span><br>
+		Priority: <span>{{punch.wishPriority}}</span><br>
+		Date: <span>{{punch.date|date:'MMM d yyyy'}}</span><br>
+		Completed: <span>{{punch.completed}}</span><br>
+		Confirmed: <span>{{punch.confirmed}}</span><br>
+		Description: <p>{{punch.description}}</p>
+	</div>
+</div>
+<div class="comments">
+	<ul class="comments-list">
+		<li ng-repeat="comment in comments" class="comment">
+			User: <span>{{comment.username}}</span>
+			Date: <span>{{comment.date|date:"MMM d yyyy"}}</span>
+			<p>{{comment.description}}</p>
+		</li>
+	</ul>
+	<form name="createPunchForm">
+		Comment: <textarea ng-model="newComment.description" name="commentDesc"></textarea>
+		<span class="error" ng-show="myForm.userName.$error.required">Required!</span><br>
+		<button ng-click="addComment()">Add</button>
+	</form>
+</div>
+
+<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

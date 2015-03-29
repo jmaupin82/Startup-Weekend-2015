@@ -8,18 +8,25 @@
 	<div class="project-data">
 		<tabset>
 			<tab heading="Timeline">
+				<div class="wish-list">
+					<h4>Wish List</h4>
+					<ul class="wish-list" ng-repeat="punch in wishlist">
+						<li>{{punch.title}}</li>
+					</ul>
+				</div>
 				<div class="row">
-					<div class="small-12 medium-4 column wish-list">
-						<h4>Wish List</h4>
-					</div>
-					<div class="small-12 medium-8 column time-line">
+					<div class="small-12 column time-line">
 						<h4>Punch List</h4>
-						<span ng-click="createPunch()">Create New</span>
-						<ul class="list" ng-repeat="punch in punches">
-							<li class="punch" ng-class="{completed:punch.completed, confirmed:punch.confirmed};">
-								<div class="info">
+						<a class="button" ng-click="createPunch()">Create New</a>
+						<ul class="list">
+							<li class="punch" ng-repeat="punch in punches" ng-class="{completed:punch.completed, confirmed:punch.confirmed};">
+								<div class="info" ng-click="showPunch(punch)">
 									<h3>{{punch.title}}</h3>
 									<span class="description">{{punch.description}}</span>
+									<span class="edit" ng-click="editPunch(punch)"></span>
+								</div>
+								<div class="date">
+									<span>{{punch.date|date:'MMM d yyyy'}}</span>
 								</div>
 							</li>
 						</ul>

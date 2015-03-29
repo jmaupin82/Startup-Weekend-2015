@@ -32,6 +32,22 @@
 			"required": false,
 			"id": "image",
 			"order": 3
+		},
+		"username": {
+			"name": "username",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "username",
+			"order": 4
+		},
+		"date": {
+			"name": "date",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "date",
+			"order": 5
 		}
 	}
 }

@@ -45,17 +45,56 @@ body {
 
 	.project-data {
 		background-color: white;
+		position: relative;
 
 		.tabs dd {
 			width: 50%;
 			text-align: center;
 		}
 
+		.wish-list {
+			position: absolute;
+			top: 60px;
+			left: 0;
+			width: 200px;
+		}
+
 		.time-line {
+			padding-left: 220px;
 			ul {
 				list-style: none;
 				padding: 0;
 				margin: 0;
+				position: relative;
+
+				&::after {
+					content: '';
+					position: absolute;
+					background-color: black;
+					width: 1px;
+					left: 50%;;
+					top: -20px;
+					bottom: -20px;
+				}
+
+				li {
+					overflow: hidden;
+					padding: 20px 0;
+
+					.info {
+						border: 1px solid black;
+						width: 49%;
+						margin-right: 2%;
+						float: left;
+						padding: 0.5em;
+						cursor: pointer;
+					}
+
+					.date {
+						width: 25%;
+						float: left;
+					}
+				}
 			}
 		}
 	}

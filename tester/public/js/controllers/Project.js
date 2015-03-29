@@ -2,71 +2,115 @@
   var punchlist = angular.module('punchList');
 
   var Project = function($scope, $stateParams, $modal, $state) {
-    if (user) {
-      $scope.user = user;
-    }
-    $scope.projectId = $stateParams.projectId;
-    $scope.idTip = 'Share this id with your client for them to join the project.';
+	    if (window.user) {
+	      $scope.user = user;
+	    }
+	    $scope.projectId = $stateParams.projectId;
+	    $scope.idTip = 'Share this id with your client for them to join the project.';
 
-    if (!window.user) {
-    	$state.go('/home');
-    	return;
-    }
+	    if (!window.user) {
+	    	$state.go('/home');
+	    	return;
+	    }
 
-    $scope.createPunch = function() {
-    	$modal.open({
-    		templateUrl: 'templates/CreatePunch.html',
-    		controller: 'Punch',
-    		resolve: {
-    			projectId: function() {
-    				return $stateParams.projectId;
-    			}
-    		}
-    	});
-    };
+	    $scope.createPunch = function() {
+	    	var instance = $modal.open({
+	    		templateUrl: 'templates/CreatePunch.html',
+	    		controller: 'Punch',
+	    		resolve: {
+	    			projectId: function() {
+	    				return $stateParams.projectId;
+	    			},
+	    			punch: function() {
+	    				return null;
+	    			}
+	    		}
+	    	});
 
-    dpd.projects.get($scope.projectId)
-    	.then(function(project) {
-    		$scope.projectName = project.name;
-    		$scope.projectDescription = project.description;
-    		$scope.$apply();
-    	});
+	    	instance.result.then(function() {}, function() {
+	    		loadPunches();
+	    	});
+	    };
 
-    dpd.punches.get({projectID: $scope.projectId})
-    	.then(function(projects) {
-    		var punches = [], wishlist = [];
+	    $scope.editPunch = function(punch) {
+	    	var instance = $modal.open({
+	    		templateUrl: 'templates/EditPunch.html',
+	    		controller: 'Punch',
+	    		resolve: {
+	    			projectId: function() {
+	    				return $stateParams.projectId;
+	    			},
+	    			punch: function() {
+	    				return punch;
+	    			}
+	    		}
+	    	});
 
-    		(projects || []).forEach(function(project) {
-    			project.completed = true;
-    			if (project.isWishList) {
-    				wishlist.push(project);
-    			} else {
-    				punches.push(project);
-    			}
-    		});
+	    	instance.result.then(function() {}, function() {
+	    		loadPunches();
+	    	});
+	    };
 
-    		punches.sort(function(a, b) {
-    			var valA = a.date,
-    				valB = b.date;
+	    $scope.showPunch = function(punch) {
+	    	var instance = $modal.open({
+	    		templateUrl: 'templates/ShowPunch.html',
+	    		controller: 'Punch',
+	    		resolve: {
+	    			projectId: function() {
+	    				return $stateParams.projectId;
+	    			},
+	    			punch: function() {
+	    				return punch;
+	    			}
+	    		}
+	    	});
+	    };
 
-    			return valA < valB ? -1 : valA === valB ? 0 : 1;
-    		});
+	    dpd.projects.get($scope.projectId)
+	    	.then(function(project) {
+	    		$scope.projectName = project.name;
+	    		$scope.projectDescription = project.description;
+	    		$scope.$apply();
+	    	});
 
-    		wishlist.sort(function(a, b) {
-    			var valA = a.wishPriority,
-    				valB = b.wishPriority;
+	    function loadPunches() {
+	    	dpd.punches.get({projectID: $scope.projectId})
+		    	.then(function(projects) {
+		    		var punches = [], wishlist = [];
 
-    			return valA < valB ? -1 : valA === valB ? 0 : 1;
-    		});
+		    		(projects || []).forEach(function(project) {
+		    			if (project.isWishList) {
+		    				wishlist.push(project);
+		    			} else {
+		    				punches.push(project);
+		    			}
+		    		});
+
+		    		punches.sort(function(a, b) {
+		    			var valA = a.date,
+		    				valB = b.date;
+
+		    			return valA < valB ? -1 : valA === valB ? 0 : 1;
+		    		});
+
+		    		wishlist.sort(function(a, b) {
+		    			var valA = a.wishPriority,
+		    				valB = b.wishPriority;
+
+		    			return valA < valB ? -1 : valA === valB ? 0 : 1;
+		    		});
 
 
-    		$scope.wishlist = wishlist;
-    		$scope.punches = punches;
+		    		$scope.wishlist = wishlist;
+		    		$scope.punches = punches;
 
-    		$scope.$apply();
-    	});
-  };
+		    		$scope.$apply();
+		    	});
+		}
 
-  punchlist.controller('Project', Project);
+		loadPunches();
+	};
+
+  	punchlist.controller('Project', Project);
 
 }());
